@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\BookChapterController;
+use App\Http\Controllers\BukuAjarController;
+use App\Http\Controllers\BukuMonografController;
+use App\Http\Controllers\BukuReferensiController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +27,12 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::get('home', [DashboardController::class, 'index']);
+Route::get('profile', [ProfileController::class, 'index']);
+
+Route::get('bukuajar', [BukuAjarController::class, 'index']);
+Route::get('bukureferensi', [BukuReferensiController::class, 'index']);
+Route::get('bukumonograf', [BukuMonografController::class, 'index']);
+Route::get('bookchapter', [BookChapterController::class, 'index']);
 
 Auth::routes();
 

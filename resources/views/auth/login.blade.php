@@ -44,13 +44,23 @@
                                     <form class="user" method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="email"
+                                            <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="email"
                                                 name="email" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address">
+                                            @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="password"
+                                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="password"
                                                 name="password" placeholder="Password">
+                                            @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -75,7 +85,7 @@
                                         <a class="small" href="#">Lupa Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="#">Buat Akun!</a>
+                                        <a class="small" href="{{ route('register') }}">Buat Akun!</a>
                                     </div>
                                 </div>
                             </div>
