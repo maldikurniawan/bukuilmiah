@@ -62,14 +62,17 @@
                                     </td>
                                     <td>
                                         <div class="btn-group">
-                                            <form action="#" style="margin-left:5px" method="POST">
+                                            <form action="{{ route('bukuajar.destroy', $d->id) }}" style="margin-left:5px"
+                                                method="POST">
                                                 @csrf
-                                                <a href="#" class="btn btn-warning btn-sm">
+                                                @method('DELETE')
+                                                <a href="{{ route('bukuajar.edit', $d->id) }}"
+                                                    class="btn btn-warning btn-sm">
                                                     <i class="fas fa-fw fa-pencil-alt"></i>
                                                 </a>
-                                                <a class="btn btn-danger btn-sm delete-confirm">
+                                                <button type="submit" class="btn btn-danger btn-sm delete-confirm">
                                                     <i class="fas fa-fw fa-trash"></i>
-                                                </a>
+                                                </button>
                                             </form>
                                         </div>
                                     </td>

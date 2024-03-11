@@ -52,14 +52,15 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                @if ($message = Session::get('success'))
+                @if (Session::get('success'))
                     <div class="alert alert-success">
-                        <p>{{ $message }}</p>
+                        {{ Session::get('success') }}
                     </div>
                 @endif
-                @if ($message = Session::get('error'))
-                    <div class="alert alert-danger">
-                        <p>{{ $message }}</p>
+
+                @if (Session::get('warning'))
+                    <div class="alert alert-warning">
+                        {{ Session::get('warning') }}
                     </div>
                 @endif
                 @yield('content')
@@ -134,6 +135,9 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin/js/demo/datatables-demo.js') }}"></script>
+
+    {{-- Sweetalert --}}
+    <script src="{{ asset('admin/js/sweetalert.js') }}"></script>
 
     {{-- Bootstrap JS --}}
     {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
