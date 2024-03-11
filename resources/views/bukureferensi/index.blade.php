@@ -18,8 +18,9 @@
                         <thead>
                             <tr>
                                 <th>Judul</th>
-                                <th>Mata Kuliah</th>
                                 <th>ISBN</th>
+                                <th>Tahun Terbit</th>
+                                <th>Jumlah Halaman</th>
                                 <th>Peran</th>
                                 <th>Jumlah Anggota</th>
                                 <th>Status Reviewer</th>

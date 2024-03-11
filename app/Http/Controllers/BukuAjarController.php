@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BukuAjarController extends Controller
 {
@@ -11,7 +12,8 @@ class BukuAjarController extends Controller
      */
     public function index()
     {
-        return view('bukuajar.index');
+        $bukuajar = DB::table('bukuajar')->orderBy('id')->get();
+        return view('bukuajar.index', compact('bukuajar'));
     }
 
     /**
@@ -19,7 +21,7 @@ class BukuAjarController extends Controller
      */
     public function create()
     {
-        //
+        return view('bukuajar.create');
     }
 
     /**

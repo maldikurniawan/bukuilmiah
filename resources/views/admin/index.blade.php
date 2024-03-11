@@ -23,6 +23,9 @@
     {{-- Bootstrap Icons --}}
     {{-- <link href="{{ asset('bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet"> --}}
 
+    {{-- Bootstrap CSS --}}
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"> --}}
+
     <!-- Custom styles for this page -->
     <link href="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
@@ -132,31 +135,12 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin/js/demo/datatables-demo.js') }}"></script>
 
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <script>
-        $('.delete-confirm').on('click', function(event) {
-            event.preventDefault();
-            // const url = $(this).attr('href');
-            var form = $(this).closest("form");
-            var name = $(this).data("name");
-            swal({
-                title: "Anda Yakin Data Dihapus?",
-                text: "Perhatian, data akan dihapus secara permanen!",
-                icon: "warning",
-                type: "warning",
-                buttons: ["Batal", "Hapus"],
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Iya, hapus!'
-            }).then((willDelete) => {
-                if (willDelete) {
-                    form.submit();
-                }
-            });
-        });
-    </script> --}}
+    {{-- Bootstrap JS --}}
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script> --}}
 
+    @stack('myscript')
 </body>
 
 </html>

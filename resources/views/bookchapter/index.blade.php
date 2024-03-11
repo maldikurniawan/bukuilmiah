@@ -17,9 +17,12 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Judul</th>
-                                <th>Mata Kuliah</th>
+                                <th>Judul Buku</th>
+                                <th>Judul Book Chapter</th>
+                                <th>Halaman Chapter</th>
                                 <th>ISBN</th>
+                                <th>Tahun Terbit</th>
+                                <th>Jumlah Halaman</th>
                                 <th>Peran</th>
                                 <th>Jumlah Anggota</th>
                                 <th>Status Reviewer</th>

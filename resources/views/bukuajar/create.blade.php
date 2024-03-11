@@ -4,7 +4,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Profile Dosen</h1>
+            <h1 class="h3 mb-0 text-gray-800">Pengajuan Buku Ajar</h1>
         </div>
 
         <!-- Content -->
@@ -13,79 +13,25 @@
                 <form action="#" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    Foto Profile
-                                </div>
-                                <div class="card-body">
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <h6 style="text-align:center">JPG atau PNG tidak lebih dari 2MB</h6>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row mt-2">
-                                        <div class="col-12">
-                                            <input type="file" name="foto" class="form-control">
-                                            <input type="hidden" name="old_foto" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-8">
-                            <div class="card">
-                                <div class="card-header">
-                                    Data Dosen
+                                    Data Pengajuan Buku Ajar Baru
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="input-icon mb-3">
-                                                <label for="">Nama Lengkap</label>
+                                                <label for="">Judul Buku</label>
                                                 <input type="text" value="" id="name" name="name"
                                                     class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-6">
-                                            <div class="input-icon mb-3">
-                                                <label for="">Fakultas</label>
-                                                <input type="text" value="" id="fakultas" name="fakultas"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="input-icon mb-3">
-                                                <label for="">Program Studi</label>
-                                                <input type="text" value="" id="prodi" name="prodi"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="input-icon mb-3">
-                                                <label for="">Jabatan Fungsional</label>
-                                                <input type="text" value="" id="jabatan" name="jabatan"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="input-icon mb-3">
-                                                <label for="">Golongan</label>
-                                                <input type="text" value="" id="golongan" name="golongan"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-12">
                                             <div class="input-icon mb-3">
-                                                <label for="">Alamat Email</label>
+                                                <label for="">Mata Kuliah</label>
                                                 <input type="email" value="" id="email" name="email"
                                                     class="form-control">
                                             </div>
@@ -94,15 +40,47 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="input-icon mb-3">
-                                                <label for="">Nomor HP</label>
-                                                <input type="text" value="" id="no_hp" name="no_hp"
+                                                <label for="">ISBN</label>
+                                                <input type="text" value="" id="fakultas" name="fakultas"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="input-icon mb-3">
-                                                <label for="">Tanggal Lahir</label>
-                                                <input type="date" value="" id="tgl_lahir" name="tgl_lahir"
+                                                <label for="">Penerbit</label>
+                                                <input type="text" value="" id="prodi" name="prodi"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="input-icon mb-3">
+                                                <label for="">Jumlah Halaman</label>
+                                                <input type="text" value="" id="jabatan" name="jabatan"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-icon mb-3">
+                                                <label for="">URL</label>
+                                                <input type="text" value="" id="golongan" name="golongan"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="input-icon mb-3">
+                                                <label for="">Tahun Terbit</label>
+                                                <input type="text" value="" id="jabatan" name="jabatan"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-icon mb-3">
+                                                <label for="">Jumlah Anggota</label>
+                                                <input type="text" value="" id="golongan" name="golongan"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -110,9 +88,10 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <button class="btn btn-primary w-100">
+                                                <button class="btn btn-primary">
                                                     Simpan
                                                 </button>
+                                                <a href="{{ route('bukuajar.index') }}" class="btn btn-danger">Batal</a>
                                             </div>
                                         </div>
                                     </div>

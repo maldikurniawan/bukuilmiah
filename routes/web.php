@@ -29,10 +29,10 @@ Route::middleware(['guest'])->group(function () {
 Route::get('home', [DashboardController::class, 'index']);
 Route::get('profile', [ProfileController::class, 'index']);
 
-Route::get('bukuajar', [BukuAjarController::class, 'index']);
-Route::get('bukureferensi', [BukuReferensiController::class, 'index']);
-Route::get('bukumonograf', [BukuMonografController::class, 'index']);
-Route::get('bookchapter', [BookChapterController::class, 'index']);
+Route::resource('bukuajar', BukuAjarController::class);
+Route::resource('bukureferensi', BukuReferensiController::class);
+Route::resource('bukumonograf', BukuMonografController::class);
+Route::resource('bookchapter', BookChapterController::class);
 
 Auth::routes();
 
