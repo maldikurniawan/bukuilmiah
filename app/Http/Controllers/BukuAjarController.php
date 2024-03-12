@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
 
 class BukuAjarController extends Controller
 {
@@ -116,9 +115,9 @@ class BukuAjarController extends Controller
                 'jml_anggota' => $jml_anggota
             ];
             DB::table('bukuajar')->where('id', $id)->update($data);
-            return redirect(route('bukuajar.index'))->with(['success' => 'Data Berhasil Disimpan']);
+            return redirect(route('bukuajar.index'))->with(['success' => 'Data Berhasil Diupdate']);
         } catch (\Throwable $e) {
-            return redirect(route('bukuajar.index'))->with(['success' => 'Data Gagal Disimpan']);
+            return redirect(route('bukuajar.index'))->with(['success' => 'Data Gagal Diupdate']);
         }
     }
 

@@ -32,7 +32,7 @@
 </head>
 
 <body id="page-top">
-    {{-- @include('sweetalert::alert') --}}
+    @include('sweetalert::alert')
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -52,7 +52,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                @if (Session::get('success'))
+                {{-- @if (Session::get('success'))
                     <div class="alert alert-success">
                         {{ Session::get('success') }}
                     </div>
@@ -62,7 +62,7 @@
                     <div class="alert alert-warning">
                         {{ Session::get('warning') }}
                     </div>
-                @endif
+                @endif --}}
                 @yield('content')
                 <!-- /.container-fluid -->
 
@@ -136,8 +136,8 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin/js/demo/datatables-demo.js') }}"></script>
 
-    {{-- Sweetalert --}}
-    <script src="{{ asset('admin/js/sweetalert.js') }}"></script>
+    {{-- Sweet Alert --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
     {{-- Bootstrap JS --}}
     {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
