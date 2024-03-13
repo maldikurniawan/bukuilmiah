@@ -27,7 +27,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::get('home', [DashboardController::class, 'index']);
-Route::get('profile', [ProfileController::class, 'index']);
+Route::resource('profile', ProfileController::class);
 
 Route::resource('bukuajar', BukuAjarController::class);
 Route::resource('bukureferensi', BukuReferensiController::class);

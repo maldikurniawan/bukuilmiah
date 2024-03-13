@@ -10,7 +10,8 @@
         <!-- Content -->
         <div class="page-body">
             <div class="container-xl">
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('profile.update', $users->id) }}" method="POST" enctype="multipart/form-data">
+                    @method('PUT')
                     @csrf
                     <div class="row">
                         <div class="col-4">
@@ -28,8 +29,7 @@
                                     <br>
                                     <div class="row mt-2">
                                         <div class="col-12">
-                                            <input type="file" name="foto" class="form-control">
-                                            <input type="hidden" name="old_foto" value="">
+                                            <input type="file" name="foto" accept=".png, .jpg, .jpeg">
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                         <div class="col-12">
                                             <div class="input-icon mb-3">
                                                 <label for="">Nama Lengkap</label>
-                                                <input type="text" value="" id="name" name="name"
+                                                <input type="text" value="{{ $users->name }}" id="name" name="name"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -54,14 +54,14 @@
                                         <div class="col-6">
                                             <div class="input-icon mb-3">
                                                 <label for="">Fakultas</label>
-                                                <input type="text" value="" id="fakultas" name="fakultas"
+                                                <input type="text" value="{{ $users->fakultas }}" id="fakultas" name="fakultas"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="input-icon mb-3">
                                                 <label for="">Program Studi</label>
-                                                <input type="text" value="" id="prodi" name="prodi"
+                                                <input type="text" value="{{ $users->prodi }}" id="prodi" name="prodi"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -70,14 +70,14 @@
                                         <div class="col-6">
                                             <div class="input-icon mb-3">
                                                 <label for="">Jabatan Fungsional</label>
-                                                <input type="text" value="" id="jabatan" name="jabatan"
+                                                <input type="text" value="{{ $users->jabatan }}" id="jabatan" name="jabatan"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="input-icon mb-3">
                                                 <label for="">Golongan</label>
-                                                <input type="text" value="" id="golongan" name="golongan"
+                                                <input type="text" value="{{ $users->golongan }}" id="golongan" name="golongan"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -86,7 +86,7 @@
                                         <div class="col-12">
                                             <div class="input-icon mb-3">
                                                 <label for="">Alamat Email</label>
-                                                <input type="email" value="" id="email" name="email"
+                                                <input type="email" value="{{ $users->email }}" id="email" name="email"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -95,14 +95,14 @@
                                         <div class="col-6">
                                             <div class="input-icon mb-3">
                                                 <label for="">Nomor HP</label>
-                                                <input type="text" value="" id="no_hp" name="no_hp"
+                                                <input type="text" value="{{ $users->no_hp }}" id="no_hp" name="no_hp"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="input-icon mb-3">
                                                 <label for="">Tanggal Lahir</label>
-                                                <input type="date" value="" id="tgl_lahir" name="tgl_lahir"
+                                                <input type="date" value="{{ $users->tgl_lahir }}" id="tgl_lahir" name="tgl_lahir"
                                                     class="form-control">
                                             </div>
                                         </div>

@@ -135,7 +135,8 @@
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
-                        <img class="rounded-circle" src="{{ asset('admin/img/undraw_profile_3.svg') }}" alt="...">
+                        <img class="rounded-circle" src="{{ asset('admin/img/undraw_profile_3.svg') }}"
+                            alt="...">
                         <div class="status-indicator bg-warning"></div>
                     </div>
                     <div>
@@ -169,14 +170,16 @@
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                    @if (empty(Auth::user()->name))
-                        {{ '' }}
-                    @else
-                        {{ Auth::user()->name }}
-                    @endif
+                    {{ Auth::guard()->user()->name }}
                 </span>
-                {{-- <img class="img-profile rounded-circle" src="{{ asset('admin/img') }}/{{ Auth::user()->foto }}"> --}}
-                <img class="img-profile rounded-circle" src="{{ asset('admin/img/undraw_profile.svg') }}">
+                @if (!empty(Auth::guard()->user()->foto))
+                    @php
+                        $path = Storage::url('public/uploads/users/' . Auth::guard()->user()->foto);
+                    @endphp
+                    <img class="img-profile rounded-circle" src="{{ url($path) }}">
+                @else
+                    <img class="img-profile rounded-circle" src="{{ asset('admin/img/undraw_profile.svg') }}">
+                @endif
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

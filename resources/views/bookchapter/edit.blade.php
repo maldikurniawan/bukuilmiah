@@ -4,7 +4,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Pengajuan Buku Ajar</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Pengajuan Book Chapter</h1>
         </div>
 
         <!-- Content -->
@@ -17,7 +17,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    Data Pengajuan Buku Ajar Baru
+                                    Edit Data Pengajuan Book Chapter
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
