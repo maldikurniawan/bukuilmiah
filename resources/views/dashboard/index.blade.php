@@ -18,7 +18,18 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Buku Ajar</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?php
+                                    $connection = mysqli_connect('localhost', 'root', '', 'bukuilmiah');
+
+                                    $query = 'SELECT id FROM bukuajar ORDER BY id';
+                                    $query_run = mysqli_query($connection, $query);
+
+                                    $row = mysqli_num_rows($query_run);
+
+                                    echo '<p>' . $row . '</p>';
+                                    ?>
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -36,7 +47,18 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Buku Referensi</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?php
+                                    $connection = mysqli_connect('localhost', 'root', '', 'bukuilmiah');
+
+                                    $query = 'SELECT id FROM bukureferensi ORDER BY id';
+                                    $query_run = mysqli_query($connection, $query);
+
+                                    $row = mysqli_num_rows($query_run);
+
+                                    echo '<p>' . $row . '</p>';
+                                    ?>
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -54,7 +76,18 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Buku Monograf</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?php
+                                    $connection = mysqli_connect('localhost', 'root', '', 'bukuilmiah');
+
+                                    $query = 'SELECT id FROM bukumonograf ORDER BY id';
+                                    $query_run = mysqli_query($connection, $query);
+
+                                    $row = mysqli_num_rows($query_run);
+
+                                    echo '<p>' . $row . '</p>';
+                                    ?>
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -72,7 +105,18 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Book Chapter</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?php
+                                    $connection = mysqli_connect('localhost', 'root', '', 'bukuilmiah');
+
+                                    $query = 'SELECT id FROM bookchapter ORDER BY id';
+                                    $query_run = mysqli_query($connection, $query);
+
+                                    $row = mysqli_num_rows($query_run);
+
+                                    echo '<p>' . $row . '</p>';
+                                    ?>
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-book fa-2x text-gray-300"></i>
