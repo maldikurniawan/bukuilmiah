@@ -79,9 +79,28 @@ class BookChapterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function acc($id)
     {
-        //
+        $update = DB::table('bookchapter')->where('id', $id)->update([
+            'status' => 1
+        ]);
+        if ($update) {
+            return redirect(route('bookchapter.index'))->with(['success' => 'Data Berhasil Diperbaharui']);
+        } else {
+            return redirect(route('bookchapter.index'))->with(['warning' => 'Data Gagal Diperbaharui']);
+        }
+    }
+
+    public function waiting($id)
+    {
+        $update = DB::table('bookchapter')->where('id', $id)->update([
+            'status' => 0
+        ]);
+        if ($update) {
+            return redirect(route('bookchapter.index'))->with(['success' => 'Data Berhasil Diperbaharui']);
+        } else {
+            return redirect(route('bookchapter.index'))->with(['warning' => 'Data Gagal Diperbaharui']);
+        }
     }
 
     /**

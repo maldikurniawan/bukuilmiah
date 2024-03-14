@@ -26,13 +26,27 @@ Route::middleware(['guest'])->group(function () {
     });
 });
 
-Route::get('home', [DashboardController::class, 'index']);
-Route::resource('profile', ProfileController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::get('home', [DashboardController::class, 'index']);
+    Route::resource('profile', ProfileController::class);
 
-Route::resource('bukuajar', BukuAjarController::class);
-Route::resource('bukureferensi', BukuReferensiController::class);
-Route::resource('bukumonograf', BukuMonografController::class);
-Route::resource('bookchapter', BookChapterController::class);
+    Route::resource('bukuajar', BukuAjarController::class);
+    Route::get('/bukuajar/{id}/acc', [BukuAjarController::class, 'acc']);
+    Route::get('/bukuajar/{id}/waiting', [BukuAjarController::class, 'waiting']);
+
+    Route::resource('bukureferensi', BukuReferensiController::class);
+    Route::get('/bukureferensi/{id}/acc', [BukuReferensiController::class, 'acc']);
+    Route::get('/bukureferensi/{id}/waiting', [BukuReferensiController::class, 'waiting']);
+
+    Route::resource('bukumonograf', BukuMonografController::class);
+    Route::get('/bukumonograf/{id}/acc', [BukuMonografController::class, 'acc']);
+    Route::get('/bukumonograf/{id}/waiting', [BukuMonografController::class, 'waiting']);
+
+    Route::resource('bookchapter', BookChapterController::class);
+    Route::get('/bookchapter/{id}/acc', [BookChapterController::class, 'acc']);
+    Route::get('/bookchapter/{id}/waiting', [BookChapterController::class, 'waiting']);
+});
+
 
 Auth::routes();
 

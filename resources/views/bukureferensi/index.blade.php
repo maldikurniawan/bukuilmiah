@@ -12,14 +12,16 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Data Pengajuan Buku Referensi</h6>
             </div>
-            <div class="row ml-1 mt-2">
-                <div class="col-12">
-                    <a href="{{ route('bukureferensi.create') }}" class="btn btn-primary">
-                        <i class="fas fa-fw fa-plus"></i>
-                        Tambah Pengajuan
-                    </a>
+            @if (Auth::user()->role != 'verifikator')
+                <div class="row ml-1 mt-2">
+                    <div class="col-12">
+                        <a href="{{ route('bukureferensi.create') }}" class="btn btn-primary">
+                            <i class="fas fa-fw fa-plus"></i>
+                            Tambah Pengajuan
+                        </a>
+                    </div>
                 </div>
-            </div>
+            @endif
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -28,14 +30,18 @@
                                 <th>No</th>
                                 <th>Judul</th>
                                 <th>ISBN</th>
-                                <th>Edisi</th>
-                                <th>Penerbit</th>
+                                @if (Auth::user()->role != 'dosen')
+                                    <th>Edisi</th>
+                                    <th>Penerbit</th>
+                                    <th>URL</th>
+                                @endif
                                 <th>Jumlah Halaman</th>
-                                <th>URL</th>
                                 <th>Tahun Terbit</th>
                                 <th>Jumlah Anggota</th>
                                 <th>Status Reviewer</th>
-                                <th>Aksi</th>
+                                @if (Auth::user()->role == 'admin')
+                                    <th>Aksi</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -47,35 +53,52 @@
                                     <td>{{ $no }}.</td>
                                     <td>{{ $d->judul_buku }}</td>
                                     <td>{{ $d->isbn }}</td>
-                                    <td>{{ $d->edisi }}</td>
-                                    <td>{{ $d->penerbit }}</td>
+                                    @if (Auth::user()->role != 'dosen')
+                                        <td>{{ $d->edisi }}</td>
+                                        <td>{{ $d->penerbit }}</td>
+                                        <td>{{ $d->url }}</td>
+                                    @endif
                                     <td>{{ $d->jml_halaman }}</td>
-                                    <td>{{ $d->url }}</td>
                                     <td>{{ $d->thn_terbit }}</td>
                                     <td>{{ $d->jml_anggota }}</td>
                                     <td>
-                                        @if ($d->status == 0)
-                                            Belum Divalidasi
+                                        @if (Auth::user()->role == 'dosen')
+                                            @if ($d->status == 0)
+                                                Waiting
+                                            @else
+                                                ACC
+                                            @endif
                                         @else
-                                            Sudah Divalidasi
+                                            @if ($d->status == 0)
+                                                <a href="/bukureferensi/{{ $d->id }}/acc" class="btn btn-danger">
+                                                    Waiting
+                                                </a>
+                                            @else
+                                                <a href="/bukureferensi/{{ $d->id }}/waiting"
+                                                    class="btn btn-success">
+                                                    ACC
+                                                </a>
+                                            @endif
                                         @endif
                                     </td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <form action="{{ route('bukureferensi.destroy', $d->id) }}" style="margin-left:5px"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <a href="{{ route('bukureferensi.edit', $d->id) }}"
-                                                    class="btn btn-warning btn-sm">
-                                                    <i class="fas fa-fw fa-pencil-alt"></i>
-                                                </a>
-                                                <button type="submit" class="btn btn-danger btn-sm delete-confirm">
-                                                    <i class="fas fa-fw fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
+                                    @if (Auth::user()->role == 'admin')
+                                        <td>
+                                            <div class="btn-group">
+                                                <form action="{{ route('bukureferensi.destroy', $d->id) }}"
+                                                    style="margin-left:5px" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="{{ route('bukureferensi.edit', $d->id) }}"
+                                                        class="btn btn-warning btn-sm">
+                                                        <i class="fas fa-fw fa-pencil-alt"></i>
+                                                    </a>
+                                                    <button type="submit" class="btn btn-danger btn-sm delete-confirm">
+                                                        <i class="fas fa-fw fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    @endif
                                 </tr>
                                 @php    $no++    @endphp
                             @endforeach
